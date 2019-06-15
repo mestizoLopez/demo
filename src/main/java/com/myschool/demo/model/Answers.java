@@ -1,10 +1,17 @@
 package com.myschool.demo.model;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.NoArgsConstructor;
+import lombok.ToString;
 
 import javax.persistence.*;
 
+@ToString
 @Data
+@AllArgsConstructor
+@NoArgsConstructor
 @Entity
 @Table
 public class Answers {
@@ -15,8 +22,10 @@ public class Answers {
     private Long id;
 
     @Column
-    private String answers;
+    private String answer;
 
+
+    @JsonBackReference
     @ManyToOne
     @JoinColumn(name = "question_id")
     private Questions question;

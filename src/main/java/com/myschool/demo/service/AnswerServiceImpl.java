@@ -3,10 +3,12 @@ package com.myschool.demo.service;
 import com.myschool.demo.model.Answers;
 import com.myschool.demo.repo.AnswersRepo;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
 import java.util.Optional;
 
+@Service
 public class AnswerServiceImpl implements AnswerService{
 
     @Autowired
@@ -26,6 +28,12 @@ public class AnswerServiceImpl implements AnswerService{
     @Override
     public Answers save(Answers answer) {
         return repo.save(answer);
+    }
+
+    @Override
+    public Answers findByQuestionId(Long id) {
+
+        return repo.findByQuestionId(id);
     }
 
 
